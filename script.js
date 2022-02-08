@@ -1,3 +1,9 @@
+
+
+
+function playGame() {
+
+
 /* Info for console */
 
 let comS = ("Computer Says: ");
@@ -35,6 +41,7 @@ console.log(playS + playerSelection1)
 console.log(playerSelection)
         
 /* Calls Function */
+
 let winner = play();
 
 /* Game play function */
@@ -45,6 +52,8 @@ function play() {
 
         if (playerSelection === "Rock" && computerChoice === "Paper") {
         console.log("You Lose ööööööööö!!!!!!!!!!!!!");
+       
+      
         }   else if (playerSelection === "Rock" && computerChoice === "Rock") {
                 console.log("It is a Draw");
         }   else if (playerSelection === "Rock" && computerChoice === "Sissors") {
@@ -63,8 +72,15 @@ function play() {
                 console.log("It is a draw!");
 
 }
+
+
     
 }
+}
+
+playGame();
+playGame();
+
 
 
 
