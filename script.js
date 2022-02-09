@@ -146,6 +146,12 @@ console.log("Game over");
 console.log ("The final scores were:");
 console.log ("Player Score: " + playerWins);
 console.log ("Computer Score: " + computerWins);
+if (playerWins > computerWins) {
+        console.log("YOU ARE THE WINNER :))))))))")
+} else {
+        console.log("THE COMPUTER BEAT YOU THIS TIME!")
+}
+
 console.log ("Play again soon");
 
 
