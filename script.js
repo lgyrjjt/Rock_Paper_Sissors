@@ -2,11 +2,8 @@
 
 
 function playGame() {
-
-
-
-        
-
+    
+        buttonPlay();
 
 /* Info for console */
 
@@ -30,30 +27,21 @@ console.log(comS + computerChoice);
 /* Info for console */
 
 let playS = ("Player Says: ");
-
+var computerChoice = computerPlay();
 /* Player input */
 
-let playerSelection1 = window.prompt("It is best out of 5. Please enter your selection for this game of either Rock, Paper or Sissors: ");
+var playerSelection = playerSelection2();
 
-const ps = playerSelection1.charAt(0).toUpperCase();
-const psrest = playerSelection1.slice(1).toLowerCase();
-playerSelection = ps + psrest
+// buttons is a node list. It looks and acts much like an array. CodePen: '3 button'
 
-/* Logs the answers for testing */
-
-console.log(playerSelection)
-        
-/* Calls Function */
-
-let winner = play();
 
 /* Game play function */
 
 function play() {
 
-        console.log("Game Nummber; " + gameNo);
+        console.log("Game Number; " + gameNo);
 
-
+}
 
         if (playerSelection === "Rock" && computerChoice === "Paper") {
                 console.log("You Lose ööööööööö!!!!!!!!!!!!!");
@@ -71,7 +59,7 @@ function play() {
                 console.log("Player Score: " + playerWins)
                 console.log("Computer Score: " + computerWins);
                
-
+                var computerChoice = computerPlay();
         }   else if (playerSelection === "Rock" && computerChoice === "Sissors") {
                 console.log("You Win!!!!!!! ööööööööö");
                 playerWins = ++playerWins;
@@ -79,16 +67,15 @@ function play() {
                 console.log("Player Score: " + playerWins)
                 console.log("Computer Score: " + computerWins);
           
-
-        }    else if (playerSelection === "Paper" && computerChoice === "Rock") {
+        }   else if (playerSelection === "Paper" && computerChoice === "Rock") {
                 console.log("Ya win this one!!!!!!");
                 playerWins = ++playerWins;
                 gameNo = ++gameNo;
                 console.log("Player Score: " + playerWins)
                 console.log("Computer Score: " + computerWins);
                 
-
         }   else if (playerSelection === "Paper" && computerChoice === "Paper") {
+      
                 console.log("Its a Draw!Ö!Ö!Ö!Ö!Ö!Ö!Ö!");
                 gameNo = ++gameNo;
                 console.log("Player Score: " + playerWins)
@@ -104,10 +91,7 @@ function play() {
             
 
         }   else if (playerSelection === "Sissors" && computerChoice === "Paper") {
-                console.log("You win this one!!!!!ääääääärrrrrr");
-                playerWins = ++playerWins;
-                gameNo = ++gameNo;
-                console.log("Player Score: " + playerWins)
+                        console.log("Player Score: " + playerWins);
                 console.log("Computer Score: " + computerWins);
                
 
@@ -115,6 +99,7 @@ function play() {
                 console.log("Looooooooooooser ö!Ö!Ö!Ö!Ö!Ö!Ö!Ö!Ö!Ö");
                 computerWins = ++computerWins;
                 gameNo = ++gameNo;
+             
                 console.log("Player Score: " + playerWins)
                 console.log("Computer Score: " + computerWins);
                
@@ -130,18 +115,79 @@ function play() {
 
     
 }
-}
+
+function buttonPlay() {
+    
+        const button = document.querySelectorAll('button');
+        
+        // we use the .forEach method to iterate through each button
+        
+        button.forEach((button) => {
+        
+         //and for each one we add a 'click'listener
+                
+                button.addEventListener('click', () => {
+                        
+                        if (button.id === "R") {
+                                playerSelection2 = "Rock"
+                        
+                        } else if (button.id === "P") {
+                                playerSelection2 = "Paper"
+                                
+                        } else if (button.id === "S") {
+                                playerSelection2 = "Sissors"
+                        
+                                console.log(playerSelection2);
+                        }
+                        alert(button.id);
+                        alert(playerSelection2);
+
+                        console.log(playerSelection2);
+                
+                        
+
+                        });
+        
+        
+        
+        // adds player selection
+
+      
+        
+        
+        
+        
+        
+        
+        });
+
+        /* Makes PlayerSelection global variable
+        
+        /* Logs the answers for testing */
+        
+      
+                
+        /* Calls Function */
+ 
+        /* TAKEN OUT TO TEST
+        let winner = play();
+        */
+
+        }
+
+        
+
 let games = 1;
 let playerScore = 0;
 let computerScore = 0;
 let playerWins = playerScore;
 let computerWins = computerScore;
 let gameNo = games;
+
+
 playGame();
-playGame();
-playGame();
-playGame();
-playGame();
+
+
 console.log("Game over");
 console.log ("The final scores were:");
 console.log ("Player Score: " + playerWins);
@@ -153,10 +199,3 @@ if (playerWins > computerWins) {
 }
 
 console.log ("Play again soon");
-
-
-
-
-
-
-
