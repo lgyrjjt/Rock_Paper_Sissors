@@ -1,162 +1,177 @@
+let games =1;
+let playerScore = 0;
+let computerScore = 0;
+let computerChoiceVAR = "";
 
+function buttonPress(computerChoiceVAR) {
 
+    console.log("Lets start game number: " + games);
 
-function playGame() {
+   
 
+    const button = document.querySelectorAll('button'); 
 
+        button.forEach((button) => {
 
-        
+            button.addEventListener('click', (e) => {
 
+                if (button.id === "R") {
+                    playerChoice = "Rock";
+                    e.stopImmediatePropagation();
 
-/* Info for console */
+                }   else if (button.id === "P") {
+                    playerChoice = "Paper"
+                    e.stopImmediatePropagation();
 
-let comS = ("Computer Says: ");
+                }   else if (button.id === "S") {
+                    playerChoice = "Sissors";
+                    e.stopImmediatePropagation();
+                }
+                console.log("Player Choice: " + playerChoice);
+                playRound();
+            })
 
-/* Computer's choice for each game */
-
-function computerPlay() {
-        let item = ["Rock", "Paper", "Sissors"];
-        return item[Math.floor(Math.random() * item.length)];
-}
-
-/* Makes function to global variable */
-
-var computerChoice = computerPlay();
-
-/* Log for testing */
-
-console.log(comS + computerChoice);
-
-/* Info for console */
-
-let playS = ("Player Says: ");
-
-/* Player input */
-
-let playerSelection1 = window.prompt("It is best out of 5. Please enter your selection for this game of either Rock, Paper or Sissors: ");
-
-const ps = playerSelection1.charAt(0).toUpperCase();
-const psrest = playerSelection1.slice(1).toLowerCase();
-playerSelection = ps + psrest
-
-/* Logs the answers for testing */
-
-console.log(playerSelection)
-        
-/* Calls Function */
-
-let winner = play();
-
-/* Game play function */
-
-function play() {
-
-        console.log("Game Nummber; " + gameNo);
-
-
-
-        if (playerSelection === "Rock" && computerChoice === "Paper") {
-                console.log("You Lose ööööööööö!!!!!!!!!!!!!");
-                computerWins = ++computerWins;
-                gameNo = ++gameNo;
-                console.log("Player Score: " + playerWins)
-                console.log("Computer Score: " + computerWins);
-                
-
-       
-      
-        }   else if (playerSelection === "Rock" && computerChoice === "Rock") {
-                console.log("It is a Draw");
-                gameNo = ++gameNo;
-                console.log("Player Score: " + playerWins)
-                console.log("Computer Score: " + computerWins);
-               
-
-        }   else if (playerSelection === "Rock" && computerChoice === "Sissors") {
-                console.log("You Win!!!!!!! ööööööööö");
-                playerWins = ++playerWins;
-                gameNo = ++gameNo;
-                console.log("Player Score: " + playerWins)
-                console.log("Computer Score: " + computerWins);
-          
-
-        }    else if (playerSelection === "Paper" && computerChoice === "Rock") {
-                console.log("Ya win this one!!!!!!");
-                playerWins = ++playerWins;
-                gameNo = ++gameNo;
-                console.log("Player Score: " + playerWins)
-                console.log("Computer Score: " + computerWins);
-                
-
-        }   else if (playerSelection === "Paper" && computerChoice === "Paper") {
-                console.log("Its a Draw!Ö!Ö!Ö!Ö!Ö!Ö!Ö!");
-                gameNo = ++gameNo;
-                console.log("Player Score: " + playerWins)
-                console.log("Computer Score: " + computerWins);
-                
-
-        }   else if (playerSelection === "Paper" && computerChoice === "Sissors") {
-                console.log ("You Lose ö!ö!ö!Ö!ö!Ö1Ö!ö!Ö1Ö!Ö!Ö1ö");
-                computerWins = ++computerWins;
-                gameNo = ++gameNo;
-                console.log("Player Score: " + playerWins)
-                console.log("Computer Score: " + computerWins);
             
+           
+        })
 
-        }   else if (playerSelection === "Sissors" && computerChoice === "Paper") {
-                console.log("You win this one!!!!!ääääääärrrrrr");
-                playerWins = ++playerWins;
-                gameNo = ++gameNo;
-                console.log("Player Score: " + playerWins)
-                console.log("Computer Score: " + computerWins);
-               
-
-        }   else if (playerSelection === "Sissors" && computerChoice === "Rock") {
-                console.log("Looooooooooooser ö!Ö!Ö!Ö!Ö!Ö!Ö!Ö!Ö!Ö");
-                computerWins = ++computerWins;
-                gameNo = ++gameNo;
-                console.log("Player Score: " + playerWins)
-                console.log("Computer Score: " + computerWins);
-               
-
-        }   else if (playerSelection === "Sissors" && computerChoice === "Sissors") {
-                console.log("It is a draw!");
-                gameNo = ++gameNo;
-                console.log("Player Score: " + playerWins)
-                console.log("Computer Score: " + computerWins);
-                
 }
+
+function computerChoice() {
+
+    let item = ["Rock", "Paper", "Sissors"];
+    return item [Math.floor(Math.random() * item.length)];
+    
+}
+
+function logComp(){
+    var computerChoiceVAR = computerChoice();
+    console.log("Computer Choice: " + computerChoiceVAR);
+}
+
+function playRound(){
 
 
     
+   
+    var computerChoiceVAR = computerChoice();
+    console.log("Computer Choice: " + computerChoiceVAR);
+    
+    
+    if (playerChoice === "Rock" && computerChoiceVAR === "Paper") {
+        console.log("Player Loses");
+        games = ++games;
+        computerScore = ++computerScore
+        console.log("Player Score: " + playerScore);
+        console.log("Computer Score: " + computerScore);
+        console.log(" ");
+        
+        playAgain();
+    
+    } else if (playerChoice === "Paper" && computerChoiceVAR === "Sissors") {
+        console.log("Player Loses");
+        games = ++games;
+        computerScore = ++computerScore
+        console.log("Player Score: " + playerScore)
+        console.log("Computer Score: " + computerScore);
+        console.log(" ");
+        
+        playAgain();
+
+    } else if (playerChoice === "Sissors" && computerChoiceVAR === "Rock") {
+        console.log("Player Loses");
+        games = ++games;
+        computerScore = ++computerScore
+        console.log("Player Score: " + playerScore)
+        console.log("Computer Score: " + computerScore);
+        console.log(" ");
+      
+        playAgain();
+
+    } else if (playerChoice === "Rock" && computerChoiceVAR === "Sissors") {
+        console.log("Player Wins");
+        games = ++games;
+        playerScore = ++playerScore
+        console.log("Player Score: " + playerScore)
+        console.log("Computer Score: " + computerScore);
+        console.log(" ");
+        
+        playAgain();
+
+    } else if (playerChoice === "Paper" && computerChoiceVAR === "Rock") {
+        console.log("Player Wins");
+        games = ++games;
+        playerScore = ++playerScore
+        console.log("Player Score: " + playerScore)
+        console.log("Computer Score: " + computerScore);
+        console.log(" ");
+       
+        playAgain();
+
+    } else if (playerChoice === "Sissors" && computerChoiceVAR === "Paper") {
+        console.log("Player Wins");
+        games = ++games;
+        playerScore = ++playerScore
+        console.log("Player Score: " + playerScore)
+        console.log("Computer Score: " + computerScore);
+        console.log(" ");
+        
+        playAgain();
+
+    } else if (playerChoice === "Rock" && computerChoiceVAR === "Rock") {
+        console.log("Draw");
+        games = ++games;
+        console.log("Player Score: " + playerScore)
+        console.log("Computer Score: " + computerScore);
+        console.log(" ");
+        
+        playAgain();
+
+    } else if (playerChoice === "Paper" && computerChoiceVAR === "Paper") {
+        console.log("Draw");
+        games = ++games;
+        console.log("Player Score: " + playerScore)
+        console.log("Computer Score: " + computerScore);
+        console.log(" ");
+     
+        playAgain();
+        
+
+    } else if (playerChoice === "Sissors" && computerChoiceVAR === "Sissors") {
+        console.log("Draw");
+        games = ++games;
+        console.log("Player Score: " + playerScore)
+        console.log("Computer Score: " + computerScore);
+        console.log(" ");
+        
+        playAgain();
 }
 }
-let games = 1;
-let playerScore = 0;
-let computerScore = 0;
-let playerWins = playerScore;
-let computerWins = computerScore;
-let gameNo = games;
-playGame();
-playGame();
-playGame();
-playGame();
-playGame();
-console.log("Game over");
-console.log ("The final scores were:");
-console.log ("Player Score: " + playerWins);
-console.log ("Computer Score: " + computerWins);
-if (playerWins > computerWins) {
-        console.log("YOU ARE THE WINNER :))))))))")
-} else {
-        console.log("THE COMPUTER BEAT YOU THIS TIME!")
+
+function playAgain(computerChoiceVAR) {
+    if (games <= 5) {
+        playerChoice = "";
+
+        computerChoice(computerChoiceVAR);
+        
+
+        buttonPress();
+       
+       
+       
+
+       
+
+    } else {
+        console.log("GAME OVER - THANKS FOR PLAYING");
+        console.log(" ");
+        console.log("Final Scores: ");
+        console.log("Player Score: " + playerScore);
+        console.log("Computer Score: " + computerScore);
+        
+    }
 }
 
-console.log ("Play again soon");
 
 
-
-
-
-
-
+playAgain(computerChoiceVAR);
