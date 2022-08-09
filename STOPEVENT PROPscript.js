@@ -3,11 +3,7 @@ let playerScore = 0;
 let computerScore = 0;
 let computerChoiceVAR = "";
 
-function buttonPress(computerChoiceVAR) {
-
-    console.log("Lets start game number: " + games);
-
-   
+function buttonPress() {
 
     const button = document.querySelectorAll('button'); 
 
@@ -18,22 +14,41 @@ function buttonPress(computerChoiceVAR) {
                 if (button.id === "R") {
                     playerChoice = "Rock";
                     e.stopImmediatePropagation();
+                    removeEvent();
 
                 }   else if (button.id === "P") {
                     playerChoice = "Paper"
                     e.stopImmediatePropagation();
+                    removeEvent();
 
                 }   else if (button.id === "S") {
                     playerChoice = "Sissors";
                     e.stopImmediatePropagation();
+                    removeEvent();
                 }
+
+               
                 console.log("Player Choice: " + playerChoice);
-                playRound();
+                
+                button.removeEventListener('click', this, false);
+                playRound(computerChoiceVAR);
             })
 
             
            
         })
+
+}
+
+function removeEvent() {
+    const button = document.querySelectorAll('button'); 
+
+    button.forEach((button) => {
+
+        button.removeEventListener('click', this);    
+   
+})
+
 
 }
 
@@ -51,21 +66,18 @@ function logComp(){
 
 function playRound(){
 
-
-    
-   
+    computerChoice();
     var computerChoiceVAR = computerChoice();
-    console.log("Computer Choice: " + computerChoiceVAR);
-    
+    logComp ();
+    removeEvent();
     
     if (playerChoice === "Rock" && computerChoiceVAR === "Paper") {
         console.log("Player Loses");
         games = ++games;
         computerScore = ++computerScore
-        console.log("Player Score: " + playerScore);
+        console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
-        console.log(" ");
-        
+        console.log(games);
         playAgain();
     
     } else if (playerChoice === "Paper" && computerChoiceVAR === "Sissors") {
@@ -74,8 +86,7 @@ function playRound(){
         computerScore = ++computerScore
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
-        console.log(" ");
-        
+        console.log(games);
         playAgain();
 
     } else if (playerChoice === "Sissors" && computerChoiceVAR === "Rock") {
@@ -84,8 +95,7 @@ function playRound(){
         computerScore = ++computerScore
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
-        console.log(" ");
-      
+        console.log(games);
         playAgain();
 
     } else if (playerChoice === "Rock" && computerChoiceVAR === "Sissors") {
@@ -94,8 +104,7 @@ function playRound(){
         playerScore = ++playerScore
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
-        console.log(" ");
-        
+        console.log(games);
         playAgain();
 
     } else if (playerChoice === "Paper" && computerChoiceVAR === "Rock") {
@@ -104,8 +113,7 @@ function playRound(){
         playerScore = ++playerScore
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
-        console.log(" ");
-       
+        console.log(games);
         playAgain();
 
     } else if (playerChoice === "Sissors" && computerChoiceVAR === "Paper") {
@@ -114,8 +122,7 @@ function playRound(){
         playerScore = ++playerScore
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
-        console.log(" ");
-        
+        console.log(games);
         playAgain();
 
     } else if (playerChoice === "Rock" && computerChoiceVAR === "Rock") {
@@ -123,8 +130,7 @@ function playRound(){
         games = ++games;
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
-        console.log(" ");
-        
+        console.log(games);
         playAgain();
 
     } else if (playerChoice === "Paper" && computerChoiceVAR === "Paper") {
@@ -132,18 +138,15 @@ function playRound(){
         games = ++games;
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
-        console.log(" ");
-     
+        console.log(games);
         playAgain();
-        
 
     } else if (playerChoice === "Sissors" && computerChoiceVAR === "Sissors") {
         console.log("Draw");
         games = ++games;
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
-        console.log(" ");
-        
+        console.log(games);
         playAgain();
 }
 }
@@ -153,7 +156,6 @@ function playAgain(computerChoiceVAR) {
         playerChoice = "";
 
         computerChoice(computerChoiceVAR);
-        
 
         buttonPress();
        
@@ -163,12 +165,7 @@ function playAgain(computerChoiceVAR) {
        
 
     } else {
-        console.log("GAME OVER - THANKS FOR PLAYING");
-        console.log(" ");
-        console.log("Final Scores: ");
-        console.log("Player Score: " + playerScore);
-        console.log("Computer Score: " + computerScore);
-        
+        console.log("GAME OVER");
     }
 }
 
