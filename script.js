@@ -6,6 +6,7 @@ let computerChoiceVAR = "";
 function buttonPress(computerChoiceVAR) {
 
     console.log("Lets start game number: " + games);
+    document.querySelector('.gameN').innerHTML = games;
 
    
 
@@ -18,14 +19,18 @@ function buttonPress(computerChoiceVAR) {
                 if (button.id === "R") {
                     playerChoice = "Rock";
                     e.stopImmediatePropagation();
+                    document.querySelector('.msg').innerHTML = playerChoice;
+
 
                 }   else if (button.id === "P") {
                     playerChoice = "Paper"
                     e.stopImmediatePropagation();
+                    document.querySelector('.msg').innerHTML = playerChoice;
 
                 }   else if (button.id === "S") {
                     playerChoice = "Sissors";
                     e.stopImmediatePropagation();
+                    document.querySelector('.msg').innerHTML = playerChoice;
                 }
                 console.log("Player Choice: " + playerChoice);
                 playRound();
@@ -47,6 +52,7 @@ function computerChoice() {
 function logComp(){
     var computerChoiceVAR = computerChoice();
     console.log("Computer Choice: " + computerChoiceVAR);
+    
 }
 
 function playRound(){
@@ -56,6 +62,7 @@ function playRound(){
    
     var computerChoiceVAR = computerChoice();
     console.log("Computer Choice: " + computerChoiceVAR);
+    document.querySelector('.CCC').innerHTML = computerChoiceVAR;
     
     
     if (playerChoice === "Rock" && computerChoiceVAR === "Paper") {
@@ -64,6 +71,10 @@ function playRound(){
         computerScore = ++computerScore
         console.log("Player Score: " + playerScore);
         console.log("Computer Score: " + computerScore);
+        document.querySelector('.PlayerS').innerHTML = playerScore;
+        document.querySelector('.CompS').innerHTML = computerScore;
+        
+
         console.log(" ");
         
         playAgain();
@@ -75,6 +86,8 @@ function playRound(){
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
         console.log(" ");
+        document.querySelector('.PlayerS').innerHTML = playerScore;
+        document.querySelector('.CompS').innerHTML = computerScore;
         
         playAgain();
 
@@ -85,6 +98,8 @@ function playRound(){
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
         console.log(" ");
+        document.querySelector('.PlayerS').innerHTML = playerScore;
+        document.querySelector('.CompS').innerHTML = computerScore;
       
         playAgain();
 
@@ -95,6 +110,8 @@ function playRound(){
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
         console.log(" ");
+        document.querySelector('.PlayerS').innerHTML = playerScore;
+        document.querySelector('.CompS').innerHTML = computerScore;
         
         playAgain();
 
@@ -105,6 +122,8 @@ function playRound(){
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
         console.log(" ");
+        document.querySelector('.PlayerS').innerHTML = playerScore;
+        document.querySelector('.CompS').innerHTML = computerScore;
        
         playAgain();
 
@@ -115,6 +134,8 @@ function playRound(){
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
         console.log(" ");
+        document.querySelector('.PlayerS').innerHTML = playerScore;
+        document.querySelector('.CompS').innerHTML = computerScore;
         
         playAgain();
 
@@ -124,6 +145,8 @@ function playRound(){
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
         console.log(" ");
+        document.querySelector('.PlayerS').innerHTML = playerScore;
+        document.querySelector('.CompS').innerHTML = computerScore;
         
         playAgain();
 
@@ -133,6 +156,8 @@ function playRound(){
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
         console.log(" ");
+        document.querySelector('.PlayerS').innerHTML = playerScore;
+        document.querySelector('.CompS').innerHTML = computerScore;
      
         playAgain();
         
@@ -143,12 +168,17 @@ function playRound(){
         console.log("Player Score: " + playerScore)
         console.log("Computer Score: " + computerScore);
         console.log(" ");
+        document.querySelector('.PlayerS').innerHTML = playerScore;
+        document.querySelector('.CompS').innerHTML = computerScore;
         
         playAgain();
 }
 }
 
 function playAgain(computerChoiceVAR) {
+  
+
+    
     if (games <= 5) {
         playerChoice = "";
 
@@ -175,6 +205,7 @@ function playAgain(computerChoiceVAR) {
 
 
 playAgain(computerChoiceVAR);
+
 
 
 
